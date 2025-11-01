@@ -1,0 +1,38 @@
+.vpn-section {
+  text-align: center;
+}
+
+.vpn-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vpn-btn:hover {
+  background-color: #3b7ed0;
+  transform: scale(1.05);
+}
+
+.summary-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.summary-section .card {
+  text-align: center;
+}
+
+.add-child form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-child input {
+  width: 100%;
+}

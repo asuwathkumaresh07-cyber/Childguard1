@@ -1,0 +1,17 @@
+.profile {
+  max-width: 400px;
+  margin: auto;
+  text-align: left;
+  line-height: 1.8;
+}
+
+.logout {
+  display: block;
+  margin: 20px auto;
+  background-color: #ff5555;
+  color: white;
+}
+
+.logout:hover {
+  background-color: #e04949;
+}

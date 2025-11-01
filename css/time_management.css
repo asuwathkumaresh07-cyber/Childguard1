@@ -1,0 +1,12 @@
+.time-set {
+  text-align: center;
+}
+
+.time-set input {
+  width: 250px;
+  text-align: center;
+}
+
+.chart-section {
+  margin-top: 20px;
+}

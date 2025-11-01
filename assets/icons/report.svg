@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" aria-hidden="true">
+  <!-- Siren Base -->
+  <rect x="15" y="40" width="30" height="8" rx="2" fill="#004C99"/>
+
+  <!-- Siren Dome -->
+  <path d="M20 40 C20 25, 40 25, 40 40 Z" fill="#007BFF"/>
+
+  <!-- Glow Lines -->
+  <line x1="30" y1="8" x2="30" y2="15" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="15" y1="12" x2="20" y2="18" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+  <line x1="45" y1="12" x2="40" y2="18" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+</svg>

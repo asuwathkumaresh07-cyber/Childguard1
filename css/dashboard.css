@@ -1,0 +1,93 @@
+/* Dashboard Layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f2f8ff, #e7f3ff);
+  margin: 0;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 10px 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  width: 45px;
+}
+
+.navbar h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4a90e2;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a.active,
+.nav-links li a:hover {
+  color: #4a90e2;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Content */
+.content {
+  padding: 25px;
+}
+
+/* Glass Cards */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Subtle hover lift */
+.glass:hover {
+  transform: translateY(-3px);
+}
+
+/* Fade-up animation */
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-in-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
