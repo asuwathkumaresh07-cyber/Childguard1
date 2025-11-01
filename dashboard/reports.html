@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChildGuard | Reports</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/reports.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <style>
+    /* --- Alert icon styling --- */
+    .alert-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .alert-icon svg {
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+      transition: transform 0.2s ease;
+    }
+    .alert-icon svg:hover {
+      transform: scale(1.05);
+    }
+   .hi{
+        text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <img src="../assets/logo.jpg" class="nav-logo" />
+    <h2 styles="text-align=ce"">ChildGuard</h2>
+    <div class="hamburger">&#9776;</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="time_management.html">Time</a></li>
+      <li><a href="website_management.html">Websites</a></li>
+      <li><a href="reports.html" class="active">Reports</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="content fade-up">
+    <section class="report-section glass">
+      <!-- 🚨 Blue Alert Icon -->
+      <div class="alert-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+          <defs>
+            <radialGradient id="blueGlow" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stop-color="#4da6ff"/>
+              <stop offset="100%" stop-color="#0066cc"/>
+            </radialGradient>
+          </defs>
+          <!-- Siren Base -->
+          <rect x="15" y="40" width="30" height="8" rx="3" fill="#004C99"/>
+          <!-- Siren Dome -->
+          <path d="M20 40 C20 25, 40 25, 40 40 Z" fill="url(#blueGlow)"/>
+          <!-- Light Rays -->
+          <line x1="30" y1="8" x2="30" y2="15" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="15" y1="12" x2="20" y2="18" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+          <line x1="45" y1="12" x2="40" y2="18" stroke="#007BFF" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h3>Daily Website Usage (by Hour)</h3>
+      <canvas id="usageChart"></canvas>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/supabaseClient.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChildGuard | Settings</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/settings.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <style>
+    /* ⚙️ Settings Icon Styling */
+    .settings-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .settings-icon svg {
+      width: 65px;
+      height: 65px;
+      fill: none;
+      stroke: #007bff;
+      stroke-width: 2;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+      transition: transform 0.3s ease;
+    }
+
+    .settings-icon svg:hover {
+      transform: rotate(25deg) scale(1.05);
+    }
+
+    /* Profile Card */
+    .profile.glass {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 20px;
+      margin-bottom: 25px;
+      color: #222;
+      text-align: center;
+    }
+
+    .profile h3 {
+      color: #1E90FF;
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      font-size: 16px;
+      color: #333;
+      margin: 6px 0;
+    }
+
+    /* 🔵 Logout Button (Styled Like ChildGuard Buttons) */
+    .btn.logout {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 25px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .btn.logout:hover {
+      background-color: #339dff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="../assets/logo.jpg" class="nav-logo" />
+    <h2>ChildGuard</h2>
+    <div class="hamburger">&#9776;</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="time_management.html">Time</a></li>
+      <li><a href="website_management.html">Websites</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="settings.html" class="active">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="content fade-up">
+    <section class="profile glass">
+      <!-- ⚙️ Blue Settings Gear Icon -->
+      <div class="settings-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 12a7.38 7.38 0 0 0-.1-1l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a7.36 7.36 0 0 0-1.7-1L14 2.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5l-.3 2.7a7.36 7.36 0 0 0-1.7 1l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.6L4.7 11a7.38 7.38 0 0 0-.1 1 7.38 7.38 0 0 0 .1 1l-2.1 1.6a.5.5 0 0 0-.1.6l2 3.4a.5.5 0 0 0 .6.2l2.5-1a7.36 7.36 0 0 0 1.7 1L10 21.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5l.3-2.7a7.36 7.36 0 0 0 1.7-1l2.5 1a.5.5 0 0 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.6l-2.1-1.6a7.38 7.38 0 0 0 .1-1z"/>
+        </svg>
+      </div>
+
+      <h3>Profile</h3>
+      <p><strong>Name:</strong> <span id="parent-name">—</span></p>
+      <p><strong>Email:</strong> <span id="parent-email">—</span></p>
+    </section>
+
+    <button id="logout" class="btn logout">Logout</button>
+  </main>
+
+  <script src="../js/supabaseClient.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/settings.js"></script>
+</body>
+</html>

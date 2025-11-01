@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChildGuard | Website Management</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/website_management.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <style>
+    /* === ICON STYLE === */
+    .icon {
+      width: 28px;
+      height: 28px;
+      stroke: #1E90FF;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .heading-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .heading-container:hover .icon {
+      filter: drop-shadow(0 0 6px #1E90FF);
+      transform: scale(1.05);
+    }
+
+    .heading-container h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #004080;
+      text-shadow: 0 0 4px rgba(30, 144, 255, 0.3);
+    }
+
+    /* === FORM INPUT === */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    input[type="url"] {
+      width: 80%;
+      max-width: 400px;
+      padding: 12px 16px;
+      border: 1px solid rgba(0, 123, 255, 0.3);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      color: #004080;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      outline: none;
+      box-shadow: inset 0 0 4px rgba(0, 123, 255, 0.1);
+    }
+
+    input[type="url"]::placeholder {
+      color: rgba(0, 64, 128, 0.5);
+    }
+
+    input[type="url"]:focus {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 8px rgba(30, 144, 255, 0.4);
+      transform: scale(1.02);
+    }
+
+    /* === CHILDGUARD HOME-PAGE STYLE BUTTON === */
+    .btn {
+      background: rgba(30, 144, 255, 0.9);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn:hover {
+      background: rgba(0, 123, 255, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(30, 144, 255, 0.5);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 8px rgba(30, 144, 255, 0.4);
+    }
+
+    /* === GLASS SECTIONS === */
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #004080;
+    }
+
+    /* === TABLE STYLING === */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 64, 128, 0.1);
+    }
+
+    th {
+      color: #004080;
+    }
+
+    tr:hover {
+      background-color: rgba(30, 144, 255, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    /* === BODY BACKGROUND === */
+    body {
+      background: linear-gradient(135deg, #eaf4ff, #f7fbff);
+      font-family: "Poppins", sans-serif;
+      color: #004080;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar h2 {
+      color: #004080;
+    }
+
+    .nav-links a.active {
+      color: #1E90FF;
+      border-bottom: 2px solid #1E90FF;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <img src="../assets/logo.jpg" class="nav-logo" />
+    <h2>ChildGuard</h2>
+    <div class="hamburger">&#9776;</div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="time_management.html">Time</a></li>
+      <li><a href="website_management.html" class="active">Websites</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="content fade-up">
+    <section class="block-form glass">
+      <div class="heading-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1E90FF" stroke-width="2" viewBox="0 0 24 24" class="icon">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/>
+        </svg>
+      </div>
+      <h3 style="text-align: center;">Block a Website</h3>
+
+      <h4>Add Website to Blocklist</h4>
+      <form id="block-site-form">
+        <input type="url" id="website-url" placeholder="https://example.com" required />
+        <button type="submit" class="btn">Add Website</button>
+      </form>
+    </section>
+
+    <section class="block-list glass">
+      <h3>Blocked Websites</h3>
+      <table id="blocked-sites-table">
+        <thead>
+          <tr>
+            <th>Website</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../js/supabaseClient.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/website_management.js"></script>
+</body>
+</html>

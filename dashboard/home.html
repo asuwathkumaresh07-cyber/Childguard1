@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChildGuard | Home</title>
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+
+  <style>
+    /* Home Icon Styling */
+    .home-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .home-icon svg {
+      width: 65px;
+      height: 65px;
+      stroke: #007bff;
+      stroke-width: 2.5;
+      fill: none;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
+      transition: transform 0.3s ease, stroke 0.3s ease;
+    }
+
+    .home-icon svg:hover {
+      transform: scale(1.05);
+      stroke: #339dff;
+    }
+
+    /* VPN Section */
+    .vpn-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .vpn-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .vpn-status svg {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease;
+    }
+
+    .vpn-status svg:hover {
+      transform: scale(1.1);
+    }
+
+    .vpn-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .vpn-btn:hover {
+      background-color: #339dff;
+      transform: translateY(-2px);
+    }
+
+    /* Input & Button Styling */
+    .add-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 25px;
+      padding: 25px;
+    }
+
+    .add-child h3 {
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    .add-child form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .add-child input {
+      width: 90%;
+      max-width: 320px;
+      padding: 12px;
+      border: 1.5px solid #007bff;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.3s ease;
+      background-color: #f9f9ff;
+      text-align: center;
+    }
+
+    .add-child input:focus {
+      border-color: #339dff;
+      box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+      background-color: white;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #339dff;
+      transform: translateY(-2px);
+    }
+
+    .summary-section {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .summary-section .card {
+      width: 220px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="../assets/logo.jpg" class="nav-logo" />
+    <h2>ChildGuard</h2>
+    <div class="hamburger">&#9776;</div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="time_management.html">Time</a></li>
+      <li><a href="website_management.html">Websites</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="content fade-up">
+    <!-- 🏠 Home Icon -->
+    <div class="home-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#007BFF" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5z"/>
+      </svg>
+    </div>
+
+    <!-- 🔐 VPN Section -->
+    <section class="vpn-section glass">
+      <h3>VPN Control</h3>
+      <div class="vpn-status" id="vpn-status">
+        VPN Status:
+        <svg id="vpn-icon" xmlns="http://www.w3.org/2000/svg" fill="#1E90FF" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="#1E90FF"/>
+          <path fill="#fff" d="M7 7l10 10M7 17L17 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <button id="vpn-toggle" class="vpn-btn">Turn ON VPN</button>
+    </section>
+
+    <!-- 📊 Summary Section -->
+    <section class="summary-section">
+      <div class="card glass">
+        <h4>Total Time Limit</h4>
+        <p id="total-time">—</p>
+      </div>
+      <div class="card glass">
+        <h4>Time Used</h4>
+        <p id="time-used">—</p>
+      </div>
+      <div class="card glass">
+        <h4>Blocked Websites Today</h4>
+        <p id="blocked-count">—</p>
+      </div>
+    </section>
+
+    <!-- 👶 Add Child Section -->
+    <section class="add-child glass">
+      <h3>Add Child</h3>
+      <form id="add-child-form">
+        <input type="text" id="child-name" placeholder="Child Name" required />
+        <input type="text" id="device-id" placeholder="Device ID" required />
+        <button type="submit" class="btn">Add Child</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const vpnToggle = document.getElementById("vpn-toggle");
+    const vpnStatus = document.getElementById("vpn-status");
+    let vpnOn = false;
+
+    vpnToggle.addEventListener("click", () => {
+      vpnOn = !vpnOn;
+
+      if (vpnOn) {
+        vpnStatus.innerHTML = `
+          VPN Status:
+          <svg id="vpn-icon" xmlns="http://www.w3.org/2000/svg" fill="#007BFF" viewBox="0 0 24 24">
+            <path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1Zm0 20a9 9 0 1 1 9-9 9 9 0 0 1-9 9Z"/>
+            <path fill="#fff" d="M10.8 13.6 8.4 11.2l-.8.8 3.2 3.2 6-6-.8-.8Z"/>
+          </svg>`;
+        vpnToggle.textContent = "Turn OFF VPN";
+      } else {
+        vpnStatus.innerHTML = `
+          VPN Status:
+          <svg id="vpn-icon" xmlns="http://www.w3.org/2000/svg" fill="#1E90FF" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="#1E90FF"/>
+            <path fill="#fff" d="M7 7l10 10M7 17L17 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>`;
+        vpnToggle.textContent = "Turn ON VPN";
+      }
+    });
+  </script>
+
+  <script src="../js/supabaseClient.js"></script>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/home.js"></script>
+</body>
+</html>
